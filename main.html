@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E commerce</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="header">
+        <nav class="navber">
+            <ul>
+                <button class="btn" onclick="showcategory('Fruits')">Fruits</button>
+                <button class="btn" onclick="showcategory('Drinks')">Drinks</button>
+                <button class="btn" onclick="showcategory('Vagies')">Vegies</button>
+                <button class="btn" onclick="showcategory('Bakery')">Bekery</button>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <main>
+             <h1>
+            Grocery Shop
+        </h1>
+        <div class="products" id="product-list"></div>
+        </div>
+        <div>
+            <ul id="cart-items">
+             
+
+            </ul>
+        </div>
+    
+            <aside class="cart">
+            <h2>Cart</h2>
+            <ul>Total: <span id="total-price">0</span></ul>
+        </aside>
+        </main>
+       
+        
+        
+<script src="script.js"></script>
+</body>
+</html>
