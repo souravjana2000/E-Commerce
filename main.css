@@ -1,261 +1,549 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-logo h2 {
+    color: #667eea;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logout-btn {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #ff3742;
+    transform: translateY(-1px);
+}
+
+.section {
+    display: none;
+    padding: 100px 0 50px;
+    min-height: 100vh;
+}
+
+.section.active {
+    display: block;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.category {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.category h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.category-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.category-header:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.toggle-icon.rotated {
+    transform: rotate(180deg);
+}
+
+.category-content {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.category-content.show {
+    display: grid !important;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.price {
+    font-size: 1.1rem;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.add-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.cart-items {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantity-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: #5a6fd8;
+    transform: scale(1.1);
+}
+
+.remove-btn {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    background: #ff3742;
+    transform: translateY(-1px);
+}
+
+.cart-total {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cart-total h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.checkout-btn {
+    background: linear-gradient(135deg, #2ed573, #7bed9f);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(46, 213, 115, 0.4);
+}
+
+.empty-cart {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    padding: 40px;
+}
+
+.auth-form {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 450px;
+    margin: 0 auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 2rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.auth-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.auth-form p {
+    text-align: center;
+    color: #666;
+}
+
+.auth-form a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+    
+    .category {
+        padding: 30px 20px;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .cart-item-controls {
+        justify-content: center;
+    }
+    
+    .auth-form {
+        margin: 0 20px;
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+    
+    .nav-menu {
+        margin-top: 15px;
+        justify-content: center;
+    }
+    
+    .section {
+        padding: 120px 0 30px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+}
+
+.cart-update {
+    animation: bounce 0.6s;
+}
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.success-message {
+    background: linear-gradient(135deg, #2ed573, #7bed9f);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(46, 213, 115, 0.3);
+}
+
+.error-message {
+    background: linear-gradient(135deg, #ff4757, #ff6b7a);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+} 
+
+.auth-form a{
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh Market - Online Grocery Store</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>🛒 Fresh Market</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active" onclick="showSection('home')">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#cart" class="nav-link" onclick="showSection('cart')">
-                        Cart (<span id="cart-count">0</span>)
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#login" class="nav-link" onclick="showSection('login')">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#signup" class="nav-link" onclick="showSection('signup')">Sign Up</a>
-                </li>
-                <li class="nav-item user-info" id="user-info" style="display: none;">
-                    <span id="username-display"></span>
-                    <button onclick="logout()" class="logout-btn">Logout</button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <section id="home" class="section active">
-        <div class="container">
-            <div class="hero">
-                <h1>Fresh Groceries Delivered to Your Door</h1>
-                <p>Shop from our wide selection of fresh fruits, vegetables, drinks, and bakery items</p>
-            </div>
-
-            <div class="categories">
-                <div class="category">
-                    <h2 class="category-header" onclick="toggleCategory('fruits')">🍎 Fruits <span class="toggle-icon">▼</span></h2>
-                    <div class="products-grid category-content" id="fruits" style="display: none;">
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=200&h=200&fit=crop" alt="Apple">
-                            <h3>Fresh Apples</h3>
-                            <p class="price">₹14/pice</p>
-                            <button onclick="addToCart('Fresh Apples', 14, 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=200&h=200&fit=crop" alt="Banana">
-                            <h3>Bananas</h3>
-                            <p class="price">₹8/pice</p>
-                            <button onclick="addToCart('Bananas', 8, 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1549007953-2f2dc0b24019?w=200&h=200&fit=crop" alt="Orange">
-                            <h3>Oranges</h3>
-                            <p class="price">₹20/pice</p>
-                            <button onclick="addToCart('Oranges', 20, 'https://images.unsplash.com/photo-1549007953-2f2dc0b24019?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=200&fit=crop" alt="Grapes">
-                            <h3>Grapes</h3>
-                            <p class="price">₹50/head</p>
-                            <button onclick="addToCart('Grapes', 50, 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=200&h=200&fit=crop" alt="Strawberries">
-                            <h3>Strawberries</h3>
-                            <p class="price">₹45/pice</p>
-                            <button onclick="addToCart('Strawberries', 45, 'https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="category">
-                    <h2 class="category-header" onclick="toggleCategory('vegetables')">🥬 Vegetables <span class="toggle-icon">▼</span></h2>
-                    <div class="products-grid category-content" id="vegetables" style="display: none;">
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&h=200&fit=crop" alt="Lettuce">
-                            <h3>Fresh Lettuce</h3>
-                            <p class="price">₹20/head</p>
-                            <button onclick="addToCart('Fresh Lettuce', 20, 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?w=200&h=200&fit=crop" alt="Tomatoes">
-                            <h3>Tomatoes</h3>
-                            <p class="price">₹12/pice</p>
-                            <button onclick="addToCart('Tomatoes', 12, 'https://images.unsplash.com/photo-1582515073490-39981397c445?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=200&h=200&fit=crop" alt="Carrots">
-                            <h3>Carrots</h3>
-                            <p class="price">₹20/head</p>
-                            <button onclick="addToCart('Carrots', 20, 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=200&h=200&fit=crop" alt="Broccoli">
-                            <h3>Broccoli</h3>
-                            <p class="price">₹30/head</p>
-                            <button onclick="addToCart('Broccoli', 30, 'https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&h=200&fit=crop" alt="Bell Peppers">
-                            <h3>Bell Peppers</h3>
-                            <p class="price">₹45/pice</p>
-                            <button onclick="addToCart('Bell Peppers', 45, 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="category">
-                    <h2 class="category-header" onclick="toggleCategory('drinks')">🥤 Drinks <span class="toggle-icon">▼</span></h2>
-                    <div class="products-grid category-content" id="drinks" style="display: none;">
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&h=200&fit=crop" alt="Orange Juice">
-                            <h3>Orange Juice</h3>
-                            <p class="price">₹40/bottle</p>
-                            <button onclick="addToCart('Orange Juice', 40, 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=200&h=200&fit=crop" alt="Water">
-                            <h3>Spring Water</h3>
-                            <p class="price">₹20/bottle</p>
-                            <button onclick="addToCart('Spring Water', 20, 'https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=200&h=200&fit=crop" alt="Soda">
-                            <h3>Cola</h3>
-                            <p class="price">₹30/can</p>
-                            <button onclick="addToCart('Cola', 30, 'https://images.unsplash.com/photo-1556881286-fc6915169721?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1571262235726-582c7d208a95?w=200&h=200&fit=crop" alt="Coffee">
-                            <h3>Iced Coffee</h3>
-                            <p class="price">₹450/bottle</p>
-                            <button onclick="addToCart('Iced Coffee', 450, 'https://images.unsplash.com/photo-1571262235726-582c7d208a95?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=200&fit=crop" alt="Tea">
-                            <h3>Green Tea</h3>
-                            <p class="price">₹329/bottle</p>
-                            <button onclick="addToCart('Green Tea', 329, 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="category">
-                    <h2 class="category-header" onclick="toggleCategory('bakery')">🍞 Bakery <span class="toggle-icon">▼</span></h2>
-                    <div class="products-grid category-content" id="bakery" style="display: none;">
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=200&h=200&fit=crop" alt="White Bread">
-                            <h3>White Bread</h3>
-                            <p class="price">₹299/loaf</p>
-                            <button onclick="addToCart('White Bread', 299, 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=200&h=200&fit=crop" alt="Croissants">
-                            <h3>Croissants</h3>
-                            <p class="price">₹499/pack</p>
-                            <button onclick="addToCart('Croissants', 499, 'https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=200&h=200&fit=crop" alt="Donuts">
-                            <h3>Glazed Donuts</h3>
-                            <p class="price">₹549/pack</p>
-                            <button onclick="addToCart('Glazed Donuts', 549, 'https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=200&h=200&fit=crop" alt="Bagels">
-                            <h3>Everything Bagels</h3>
-                            <p class="price">₹399/pack</p>
-                            <button onclick="addToCart('Everything Bagels', 399, 'https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=200&fit=crop" alt="Muffins">
-                            <h3>Blueberry Muffins</h3>
-                            <p class="price">₹699/pack</p>
-                            <button onclick="addToCart('Blueberry Muffins', 699, 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=200&fit=crop')" class="add-btn">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="cart" class="section">
-        <div class="container">
-            <h2>Shopping Cart</h2>
-            <div id="cart-items" class="cart-items">
-                <p class="empty-cart">Your cart is empty</p>
-            </div>
-            <div id="cart-total" class="cart-total" style="display: none;">
-                <h3>Total: ₹<span id="total-amount">0.00</span></h3>
-                <button class="checkout-btn">Proceed to Checkout</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="login" class="section">
-        <div class="container">
-            <div class="auth-form">
-                <h2>Login</h2>
-                <form id="login-form">
-                    <div class="form-group">
-                        <label for="login-email">Email:</label>
-                        <input type="email" id="login-email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password">Password:</label>
-                        <input type="password" id="login-password" required>
-                    </div>
-                    <button type="submit" class="auth-btn">Login</button>
-                </form>
-                <p>Don't have an account? <a href="#" onclick="showSection('signup')">Sign up here</a></p>
-            </div>
-        </div>
-    </section>
-
-    <section id="signup" class="section">
-        <div class="container">
-            <div class="auth-form">
-                <h2>Sign Up</h2>
-                <form id="signup-form">
-                    <div class="form-group">
-                        <label for="signup-name">Full Name:</label>
-                        <input type="text" id="signup-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-email">Email:</label>
-                        <input type="email" id="signup-email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-password">Password:</label>
-                        <input type="password" id="signup-password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-confirm">Confirm Password:</label>
-                        <input type="password" id="signup-confirm" required>
-                    </div>
-                    <button type="submit" class="auth-btn">Sign Up</button>
-                </form>
-                <p>Already have an account? <a href="#" onclick="showSection('login')">Login here</a></p>
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
-</body>
-</html>
